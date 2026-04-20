@@ -1,0 +1,32 @@
+# 简历解析工具 - 依赖列表
+
+# 核心依赖
+pydantic>=2.0.0
+loguru>=0.7.0
+
+# 图片处理
+Pillow>=10.0.0
+opencv-python>=4.8.0
+opencv-contrib-python>=4.8.0
+
+# OCR 引擎
+paddleocr>=2.7.0
+paddlepaddle>=2.5.0
+
+# PDF 解析
+PyMuPDF>=1.23.0
+
+# Word 解析
+python-docx>=0.8.11
+
+# Web 服务
+fastapi>=0.100.0
+uvicorn[standard]>=0.23.0
+python-multipart>=0.0.6
+
+# RAG / 向量存储（可选）
+# chromadb>=0.4.0
+# sentence-transformers>=2.2.0
+
+# 备选 OCR 引擎
+# pytesseract>=0.3.10

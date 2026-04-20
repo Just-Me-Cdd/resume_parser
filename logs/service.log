@@ -1,0 +1,7 @@
+[33mConnectivity check to the model hoster has been skipped because `PADDLE_PDX_DISABLE_MODEL_SOURCE_CHECK` is enabled.[0m
+INFO:     Started server process [163010]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:45958 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47480 - "GET / HTTP/1.1" 200 OK
