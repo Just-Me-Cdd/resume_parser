@@ -32,7 +32,7 @@ class Resume(BaseModel):
     raw_text: str = Field(default="", description="原始文本（保留）")
     file_name: str = Field(default="", description="文件名")
     file_type: str = Field(default="", description="文件类型 pdf/docx/image")
-    parsed_at: datetime = Field(default_factory=datetime.now)
+    parsed_at: datetime = Field(default_factory=lambda: datetime.now())
 
     def get_section(self, title: str) -> Optional[ResumeSection]:
         """按标题查找章节（模糊匹配）"""

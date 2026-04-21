@@ -88,8 +88,17 @@ class ParseRequest(BaseModel):
 
 @app.get("/", response_class=HTMLResponse)
 async def root():
-    """返回主页"""
-    return get_index_html()
+    """返回主页 - 从 static/index.html 加载"""
+    index_path = STATIC_DIR / "index.html"
+    if index_path.exists():
+        return index_path.read_text(encoding="utf-8")
+    # 如果静态文件不存在，返回简单的错误页面
+    return """
+    <html><body>
+        <h1>简历解析工具</h1>
+        <p>static/index.html 未找到</p>
+    </body></html>
+    """
 
 
 @app.post("/api/upload")

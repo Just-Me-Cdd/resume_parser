@@ -43,9 +43,10 @@ class PDFParser(BaseParser):
     def _parse_as_text(self, file_path: Path) -> Resume:
         doc = fitz.open(str(file_path))
         all_blocks = []
+        page_count = len(doc)
         
         for page_num, page in enumerate(doc):
-            logger.info(f"处理第 {page_num + 1}/{len(doc)} 页...")
+            logger.info(f"处理第 {page_num + 1}/{page_count} 页...")
             text = page.get_text("text")
             blocks = page.get_text("blocks")
             
@@ -63,7 +64,7 @@ class PDFParser(BaseParser):
         raw_text = "\n".join([b["text"] for b in all_blocks])
         
         resume = Resume(sections=sections, raw_text=raw_text, file_name=file_path.name, file_type="pdf")
-        logger.info(f"解析完成，共 {len(doc)} 页，{len(sections)} 个章节")
+        logger.info(f"解析完成，共 {page_count} 页，{len(sections)} 个章节")
         return resume
     
     def _parse_as_images(self, file_path: Path) -> Resume:
